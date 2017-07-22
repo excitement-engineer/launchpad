@@ -245,6 +245,14 @@ class PadContainer extends Component {
       isDeploying: false,
     });
   };
+  
+  handleDelete = async () => {
+    const { id } = this.props.padData.pad;
+    const confirmDelete = confirm("Are you sure you want to delete this pad? This action cannot be undone.");
+    if (confirmDelete === true) {
+        //TODO: Call mutation to delete the pad...
+    }
+  }
 
   handleFork = async () => {
     if (!this.state.isDeploying) {
@@ -410,6 +418,7 @@ class PadContainer extends Component {
           onFork={this.handleFork}
           onForkDraft={this.handleForkDraft}
           onDownload={this.handleDownload}
+          onDelete={this.handleDelete}
           onReset={this.handleReset}
           onLogin={this.handleLogin}
           onLogout={this.handleLogout}

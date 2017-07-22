@@ -25,6 +25,7 @@ type PadSplitProps = {|
   onDeploy: () => any,
   onReset: () => any,
   onFork: () => any,
+  onDelete: () => any,
   onCodeChange: string => any,
   onContextChange: (Array<Context>) => any,
   onLogin: () => any,
@@ -268,6 +269,7 @@ export default class PadSplit extends Component {
           onReset={this.props.onReset}
           onFork={this.handleFork}
           onDownload={this.props.onDownload}
+          onDelete={this.props.onDelete}
           onLogin={this.props.onLogin}
           onLogout={this.props.onLogout}
           onSetTitle={this.props.onSetTitle}

@@ -17,6 +17,7 @@ export default class Header extends Component {
     onReset: () => any,
     onFork: () => any,
     onDownload: () => any,
+    onDelete: () => any,
     onLogin: () => any,
     onLogout: () => any,
     onSetTitle: (title: string) => any,
@@ -98,6 +99,26 @@ export default class Header extends Component {
       </HeaderButton>
     );
   }
+  
+  renderDeleteButton() {
+    let disabled;
+    let tooltip;
+    let onClick;
+    if (!this.props.pad.isDeployed || this.props.pad.isDraft) {
+      disabled = true;
+      tooltip = 'This pad is not saved yet';
+    } else if (this.props.isDeploying) {
+      disabled = true;
+    } else {
+      disabled = false;
+      onClick = this.props.onDelete;
+    }
+    return (
+      <HeaderButton tooltip={tooltip} disabled={disabled} onClick={onClick}>
+        Delete
+      </HeaderButton>
+    );
+  }
 
   render() {
     return (
@@ -112,6 +133,7 @@ export default class Header extends Component {
             {this.renderDeployButton()}
             {this.renderDownloadButton()}
             {this.renderForkButton()}
+            {this.renderDeleteButton()}
           </div>
 
           <TitleEditor

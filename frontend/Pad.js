@@ -15,6 +15,7 @@ type PadProps = {|
   onForkDraft: (string, string, Array<Context>, Array<string>) => any,
   onReset: () => any,
   onDownload: string => any,
+  onDelete: () => any,
   onLogin: () => any,
   onLogout: () => any,
   onUpdateMetadata: ({
@@ -211,6 +212,7 @@ export default class Pad extends Component {
         onContextChange={this.handleContextChange}
         onFork={this.handleFork}
         onDownload={this.handleDownload}
+        onDelete={this.props.onDelete}
         onDeploy={this.handleDeploy}
         onReset={this.handleReset}
         onLogin={this.props.onLogin}
